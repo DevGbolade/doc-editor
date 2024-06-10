@@ -1,7 +1,5 @@
 # Duplo Platform API
 
-<!-- ![Duplo Logo](./duplo-logo.png) -->
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -21,7 +19,7 @@
 
 ## Introduction
 
-Welcome to the Duplo Platform Backend! This application serves as the backend for Duplo, a platform that facilitates business registrations, order processing, and credit score calculation for businesses.
+This project is a real-time collaborative text editor that allows multiple users to simultaneously edit a document. The editor provides a seamless and responsive editing experience, handling concurrent updates and maintaining document consistency.
 
 ## Features
 

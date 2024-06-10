@@ -13,7 +13,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 4009:4005
+      - 4004:4004
     volumes:
       - ./docker-volumes/data:/usr/app
     env_file: .env
@@ -35,10 +35,9 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 4009:4005
+      - 5173:5173
     volumes:
       - ./docker-volumes/data:/usr/app
-    env_file: .env
     environment:
       - CLIENT_URL=http://localhost:5173
     depends_on:
