@@ -1,0 +1,45 @@
+services:
+  mongodb:
+    container_name: mongodb_container_one
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27019:27017
+    volumes:
+      - ./docker-volumes/data:/data/db
+  app:
+    container_name: app_container_one
+    build:
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4009:4005
+    volumes:
+      - ./docker-volumes/data:/usr/app
+    env_file: .env
+    environment:
+      - DATABASE_URL=mongodb://mongodb_container_one:27017/text_editor_db
+      - JWT_TOKEN=iyutgsfxbloydthfj7ty
+      - NODE_ENV="development"
+      - SECRET_KEY_ONE=SECRET_KEY_ONE09876wert
+      - SECRET_KEY_TWO=SECRET_KEY_TWO98766wert
+      - CLIENT_URL=http://localhost:5173
+
+    depends_on:
+      - mongodb
+
+  frontend-app:
+    container_name: frontend_app
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 4009:4005
+    volumes:
+      - ./docker-volumes/data:/usr/app
+    env_file: .env
+    environment:
+      - CLIENT_URL=http://localhost:5173
+    depends_on:
+      - app
