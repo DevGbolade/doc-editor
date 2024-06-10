@@ -44,13 +44,13 @@ Make sure you have the following installed on your system:
 
    ```bash
    git clone https://github.com/DevGbolade/doc-editor.git
-   cd doc-editor
+   cd doc-editor/backend
    ```
 
 2. **Install dependencies:**
 
    ```bash
-   npm install
+   docker compose up
    ```
 
 ### Configuration
